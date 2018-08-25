@@ -1,2 +1,0 @@
-# Xamarin---C-
-Estudando Xamarin

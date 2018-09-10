@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Auvo_Project"
+             x:Class="Auvo_Project.MainPage">
+
+    <StackLayout>
+        <Label Text="Seja bem-vindo ao cadastro de pessoas!"
+               HorizontalOptions="Center"
+               FontSize="Large"/>
+        <Entry x:Name ="Text1" Text="{Binding Path=Nome}" Placeholder="Insira seu nome"/>
+        <Entry x:Name ="Text2" Text="{Binding Path=CPF}" Placeholder="Insira seu CPF"/>
+        <Button Text="Salvar" Command="{Binding Path=SaveCommand}"/>
+
+
+    </StackLayout>
+</ContentPage>

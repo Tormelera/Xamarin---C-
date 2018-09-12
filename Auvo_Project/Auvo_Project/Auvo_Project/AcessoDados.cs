@@ -20,7 +20,7 @@ namespace Auvo_Project
 
         public void Insert(Usuario usuario)
         {
-            _conexao.Insert(nome);
+            _conexao.Insert(usuario);
         }
 
         public void Delete(Usuario usuario)

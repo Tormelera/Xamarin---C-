@@ -5,13 +5,16 @@
              x:Class="Auvo_Project.MainPage">
 
     <StackLayout>
-        <Label Text="Seja bem-vindo ao cadastro de pessoas!"
+        <Label Text="Seja bem-vindo ao cadastro de Usuários!"
                HorizontalOptions="Center"
                FontSize="Large"/>
         <Entry x:Name ="Text1" Text="{Binding Path=Nome}" Placeholder="Insira seu nome"/>
         <Entry x:Name ="Text2" Text="{Binding Path=CPF}" Placeholder="Insira seu CPF"/>
+        <Entry x:Name ="Text3" Text="{Binding Path=Email}" Placeholder="Insira seu E-mail"/>
+        <Entry x:Name ="Text4" Text="{Binding Path=Login}" Placeholder="Insira seu Login"/>
+        <Entry x:Name ="Text5" Text="{Binding Path=Senha}" Placeholder="Insira sua Senha" IsPassword="True"/>
         <Button Text="Salvar" Command="{Binding Path=SaveCommand}"/>
-
-
+        <ListView x:Name="listViewUsuarios" />
     </StackLayout>
+    
 </ContentPage>

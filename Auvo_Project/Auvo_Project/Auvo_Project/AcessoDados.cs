@@ -6,8 +6,9 @@ using Xamarin.Forms;
 
 namespace Auvo_Project
 {                           //Estudar IDisposable
-    public class AcessoDados :IDisposable
+    public class AcessoDados // :IDisposable
     {
+        /*
         private SQLite.Net.SQLiteConnection _conexao;
 
         public AcessoDados()
@@ -32,5 +33,6 @@ namespace Auvo_Project
         {
             
         }
+        */
     }
 }

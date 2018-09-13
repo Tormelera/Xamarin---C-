@@ -10,6 +10,7 @@ namespace Auvo_Project.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        /*
         private string _nome;
 
         public string Nome
@@ -72,25 +73,24 @@ namespace Auvo_Project.ViewModels
         }
 
         
-        public Command SaveCommand { get; }
+        */
 
-        List<Usuario> ListaUsuarios = new List<Usuario>();
 
         async void ExecuteSaveCommand()
         {
-            Usuario usuarioAtual = new Usuario();
+
             await Task.Delay(1500);
 
-            usuarioAtual.Nome = this.Nome;
-            usuarioAtual.CPF = this.CPF;
-            usuarioAtual.Email = this.Email;
-            usuarioAtual.Login = this.Login;
-            usuarioAtual.Senha = this.Senha;
+            Nome = this.Nome;
+            CPF = this.CPF;
+            Email = this.Email;
+            Login = this.Login;
+            Senha = this.Senha;
 
-            await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{usuarioAtual.Nome}';\n" +
-                $"CPF: '{usuarioAtual.CPF}';\n" +
-                $"E-mail: '{usuarioAtual.Email}';\n" +
-                $"Usuário: '{usuarioAtual.Login}'.", "Sim", "Não");
+            await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{Nome}';\n" +
+                $"CPF: '{CPF}';\n" +
+                $"E-mail: '{Email}';\n" +
+                $"Usuário: '{Login}'.", "Sim", "Não");
 
             
 

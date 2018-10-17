@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using SQLite;
 using System.Text;
+using Android.Util;
+using Auvo_Project.Model;
 
 namespace Auvo_Project
 {
@@ -12,9 +14,9 @@ namespace Auvo_Project
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    conexao.CreateTable<Aluno>();
+                    conexao.CreateTable<Pessoa>();
                     return true;
                 }
             }
@@ -24,13 +26,13 @@ namespace Auvo_Project
                 return false;
             }
         }
-        public bool InserirAluno(Aluno aluno)
+        public bool InserirPessoa(Pessoa pessoa)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    conexao.Insert(aluno);
+                    conexao.Insert(pessoa);
                     return true;
                 }
             }
@@ -40,13 +42,13 @@ namespace Auvo_Project
                 return false;
             }
         }
-        public List<Aluno> GetAlunos()
+        public List<Pessoa> GetPessoas()
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    return conexao.Table<Aluno>().ToList();
+                    return conexao.Table<Pessoa>().ToList();
                 }
             }
             catch (SQLiteException ex)
@@ -55,13 +57,13 @@ namespace Auvo_Project
                 return null;
             }
         }
-        public bool AtualizarAluno(Aluno aluno)
+        public bool AtualizarPessoa(Pessoa pessoa)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    conexao.Query<Aluno>("UPDATE Aluno set Nome=?,Idade=?, Email=? Where Id=?", aluno.Nome, aluno.Idade, aluno.Email, aluno.Id);
+                    conexao.Query<Pessoa>("UPDATE Pessoa set Nome=?,CPF=?, Email=?, Login=? Where Id=?", pessoa.Nome, pessoa.CPF, pessoa.Email, pessoa.Login, pessoa.Id);
                     return true;
                 }
             }
@@ -71,13 +73,13 @@ namespace Auvo_Project
                 return false;
             }
         }
-        public bool DeletarAluno(Aluno aluno)
+        public bool DeletarPessoa(Pessoa pessoa)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    conexao.Delete(aluno);
+                    conexao.Delete(pessoa);
                     return true;
                 }
             }
@@ -87,13 +89,13 @@ namespace Auvo_Project
                 return false;
             }
         }
-        public bool GetAluno(int Id)
+        public bool GetPessoa(int Id)
         {
             try
             {
-                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Alunos.db")))
+                using (var conexao = new SQLiteConnection(System.IO.Path.Combine(pasta, "Pessoas.db")))
                 {
-                    conexao.Query<Aluno>("SELECT * FROM Aluno Where Id=?", Id);
+                    conexao.Query<Pessoa>("SELECT * FROM Pessoa Where Id=?", Id);
                     //conexao.Update(aluno);
                     return true;
                 }

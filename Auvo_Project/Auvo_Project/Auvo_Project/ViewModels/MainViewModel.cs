@@ -6,24 +6,32 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Auvo_Project;
 using Auvo_Project.Model;
+using System.Collections.ObjectModel;
 
 namespace Auvo_Project.ViewModels
 {
     public class MainViewModel : Pessoa
     {
-        async void ExecuteSaveCommand()
+        Pessoa pessoa = new Pessoa();
+        List<Pessoa> listaPessoas = new List<Pessoa>();
+
+        DataBase db;
+
+        async void ExecuteIncludeCommand()
         {
 
             await Task.Delay(1500);
 
-            await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{Nome}';\n" +
+                await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{Nome}';\n" +
                 $"CPF: '{CPF}';\n" +
                 $"E-mail: '{Email}';\n" +
                 $"Usuário: '{Login}'.", "Sim", "Não");
 
+            db.InserirPessoa(pessoa);
+
         }
 
-        bool CanExecuteSaveCommand()
+        bool CanExecuteIncludeCommand()
         {
             if ((string.IsNullOrWhiteSpace(Nome) || string.IsNullOrWhiteSpace(CPF) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Login)
                 || string.IsNullOrWhiteSpace(Senha)))
@@ -40,7 +48,8 @@ namespace Auvo_Project.ViewModels
 
         public MainViewModel()
         {
-            SaveCommand = new Command(ExecuteSaveCommand, CanExecuteSaveCommand);
+            IncludeCommand = new Command(ExecuteIncludeCommand, CanExecuteIncludeCommand);
+            
         }
     }
 }

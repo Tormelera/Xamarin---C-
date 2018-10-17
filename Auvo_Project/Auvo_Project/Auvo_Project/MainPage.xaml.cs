@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Auvo_Project.ViewModels;
+using Auvo_Project.Model;
 
 namespace Auvo_Project
 {
@@ -15,7 +16,15 @@ namespace Auvo_Project
 			InitializeComponent();
 
             BindingContext = new MainViewModel();
-            
-		}
+
+            DataBase db = new DataBase();
+
+            bool conexao = db.CriarBancoDeDados();
+
+            if (conexao == false)
+                App.Current.MainPage.DisplayAlert("Ops!", "Ocorreu um erro na tentativa de criar seu banco de dados.", "OK");
+
+
+        }
     }
 }

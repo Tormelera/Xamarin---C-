@@ -6,7 +6,21 @@ namespace Auvo_Project.Model
 {
     public class Pessoa : BaseViewModel
     {
-        public Command SaveCommand { get; set; }
+        public Command IncludeCommand { get; set; }
+        public Command EditCommand { get; set; }
+        public Command DeleteCommand { get; set; }
+
+        private int _id;
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get { return _id; }
+            set {
+                if (SetProperty(ref _id, value))
+                    IncludeCommand.ChangeCanExecute();
+            }
+        }
+
         private string _nome;
 
         public string Nome
@@ -15,20 +29,20 @@ namespace Auvo_Project.Model
             set
             {
                 if (SetProperty(ref _nome, value))
-                    SaveCommand.ChangeCanExecute();
+                    IncludeCommand.ChangeCanExecute();
 
             }
         }
 
         private string _cpf;
-        [PrimaryKey]
+
         public string CPF
         {
             get { return _cpf; }
             set
             {
                 if (SetProperty(ref _cpf, value))
-                    SaveCommand.ChangeCanExecute();
+                    IncludeCommand.ChangeCanExecute();
             }
         }
 
@@ -40,7 +54,7 @@ namespace Auvo_Project.Model
             set
             {
                 if (SetProperty(ref _email, value))
-                    SaveCommand.ChangeCanExecute();
+                    IncludeCommand.ChangeCanExecute();
             }
         }
 
@@ -52,7 +66,7 @@ namespace Auvo_Project.Model
             set
             {
                 if (SetProperty(ref _login, value))
-                    SaveCommand.ChangeCanExecute();
+                    IncludeCommand.ChangeCanExecute();
             }
         }
 
@@ -64,7 +78,7 @@ namespace Auvo_Project.Model
             set
             {
                 if (SetProperty(ref _senha, value))
-                    SaveCommand.ChangeCanExecute();
+                    IncludeCommand.ChangeCanExecute();
             }
         }
     }

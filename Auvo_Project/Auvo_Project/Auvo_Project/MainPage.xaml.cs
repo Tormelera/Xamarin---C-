@@ -19,10 +19,7 @@ namespace Auvo_Project
 
             DataBase db = new DataBase();
 
-            bool conexao = db.CriarBancoDeDados();
 
-            if (conexao == false)
-                App.Current.MainPage.DisplayAlert("Ops!", "Ocorreu um erro na tentativa de criar seu banco de dados.", "OK");
 
 
         }

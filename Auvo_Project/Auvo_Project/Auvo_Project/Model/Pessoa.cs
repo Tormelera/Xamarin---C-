@@ -4,6 +4,7 @@ using SQLite.Net.Attributes;
 
 namespace Auvo_Project.Model
 {
+    [Table("Pessoa")]
     public class Pessoa : BaseViewModel
     {
         public Command IncludeCommand { get; set; }
@@ -11,7 +12,7 @@ namespace Auvo_Project.Model
         public Command DeleteCommand { get; set; }
 
         private int _id;
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
             get { return _id; }

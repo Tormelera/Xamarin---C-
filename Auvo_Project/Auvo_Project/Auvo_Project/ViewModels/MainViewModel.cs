@@ -12,29 +12,28 @@ namespace Auvo_Project.ViewModels
 {
     public class MainViewModel : Pessoa
     {
-        
-        List<Pessoa> listaPessoas = new List<Pessoa>();
 
-        DataBase db = new DataBase();
-        Pessoa p = new Pessoa();
+        Pessoa pessoa = new Pessoa();
 
         async void ExecuteIncludeCommand()
         {
             
             await Task.Delay(1500);
 
-                await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{Nome}';\n" +
+                bool accept = await App.Current.MainPage.DisplayAlert("Auvo_Project", $"Confirma os dados abaixo?\nNome: '{Nome}';\n" +
                 $"CPF: '{CPF}';\n" +
                 $"E-mail: '{Email}';\n" +
                 $"Usuário: '{Login}'.", "Sim", "Não");
 
-            p.Nome = this.Nome;
-            p.CPF = this.CPF;
-            p.Email = this.Email;
-            p.Login = this.Login;
-            p.Senha = this.Senha;
+            if (accept == true)
+            {
 
-            db.InserirPessoa(p);
+                DataBase.conexao.CreateTable<Pessoa>();
+                DataBase.conexao.Insert(pessoa);
+
+                await App.Current.MainPage.DisplayAlert("Auvo_Project", "Dados salvos com sucesso!", "OK");
+
+            }
 
         }
 

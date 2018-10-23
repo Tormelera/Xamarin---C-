@@ -1,3 +1,7 @@
+using Auvo_Project.Model;
+using PCLExt.FileStorage;
+using PCLExt.FileStorage.Folders;
+using SQLite;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,9 +11,14 @@ namespace Auvo_Project
 {
 	public partial class App : Application
 	{
-		public App ()
+        
+
+        public App ()
 		{
-			InitializeComponent();
+            
+            DataBase.conexao.CreateTable<Pessoa>();
+
+            InitializeComponent();
 
 			MainPage = new MainPage();
 		}

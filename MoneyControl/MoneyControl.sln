@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyControl.Android", "MoneyControl\MoneyControl.Android\MoneyControl.Android.csproj", "{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MoneyControl", "MoneyControl\MoneyControl\MoneyControl.shproj", "{BCE1A90D-2692-4B84-B7F5-A5EBCFC70733}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MoneyControl\MoneyControl\MoneyControl.projitems*{461b2cd6-0f56-4f4e-aa4d-7d0c44d548a6}*SharedItemsImports = 4
+		MoneyControl\MoneyControl\MoneyControl.projitems*{bce1a90d-2692-4b84-b7f5-a5ebcfc70733}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461B2CD6-0F56-4F4E-AA4D-7D0C44D548A6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {569A4662-BD6A-4451-833F-EDD57E54B51C}
+	EndGlobalSection
+EndGlobal
